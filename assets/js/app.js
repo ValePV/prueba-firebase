@@ -118,15 +118,17 @@ function submitClick() {
 
 function IngresoGoogle() {
   if(!firebase.auth().currentUser){
+    
     var provider = new firebase.auth.GoogleAuthProvider();
     //indico a google que se van a autentificar
     provider.addScope('https:wwww.googleapis.com/auth/plus.login');
 
-    firebase.auth()signInWithPopup(provider).then(function(result){
+    firebase.auth().signInWithPopup(provider).then (function(result){
       var token = result.credential.accesstoken;
       var user= result.user;
       console.log(user);
-    }).catch (function(error){
+
+    }).catch (function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
       var erroremail = error.email;
