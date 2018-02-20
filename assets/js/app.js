@@ -12,7 +12,7 @@
 
 
 // Initialize Firebase
-  var config = {
+  /*var config = {
     apiKey: "AIzaSyDhWCc6S10Usx70Q8NhSZnlGjjO66IYZ80",
     authDomain: "login-prueba-f9344.firebaseapp.com",
     databaseURL: "https://login-prueba-f9344.firebaseio.com",
@@ -22,7 +22,7 @@
   };
 
 firebase.initializeApp(config);
-/*
+
 var provider = new firebase.auth.GoogleAuthProvider();
 
 function signIn() {
@@ -54,7 +54,7 @@ function signIn() {
     authDomain: "login-prueba-f9344.firebaseapp.com",
     databaseURL: "https://login-prueba-f9344.firebaseio.com",
     projectId: "login-prueba-f9344",
-    storageBucket: "login-prueba-f9344.appspot.com",
+    storageBucket: "",
     messagingSenderId: "130120816145"
   };
 
@@ -78,7 +78,7 @@ firebase.initializeApp(config);
       modulo2: event.target.modulo2.value ,
       modulo3: event.target.modulo3.value
     });
-  };
+  }
  
 
 
