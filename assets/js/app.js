@@ -12,7 +12,7 @@
 
 
 // Initialize Firebase
-  /*var config = {
+  var config = {
     apiKey: "AIzaSyDhWCc6S10Usx70Q8NhSZnlGjjO66IYZ80",
     authDomain: "login-prueba-f9344.firebaseapp.com",
     databaseURL: "https://login-prueba-f9344.firebaseio.com",
@@ -47,7 +47,7 @@ function signIn() {
   
   });
 
-
+/*
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDhWCc6S10Usx70Q8NhSZnlGjjO66IYZ80",
@@ -115,7 +115,7 @@ function submitClick() {
 
 }
 */
-
+/*
 function IngresoGoogle() {
   if(!firebase.auth().currentUser){
     
