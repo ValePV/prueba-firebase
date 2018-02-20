@@ -22,30 +22,8 @@
   };
 
 firebase.initializeApp(config);
-
+/*
 var provider = new firebase.auth.GoogleAuthProvider();
-
-/* function signIn(){
- firebase.auth().signInWithPopup(provider).then(function(result) {
-  // This gives you a Google Access Token. You can use it to access the Google API.
-  var token = result.credential.accessToken;
-  // The signed-in user info.
-  var user = result.user;
-  console.log(user.displayName);
-  $('.user_name').append('<h4>Welcome ' + user.displayName + '!</h4>');
-
-  // ...
-}).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-  // ...
-});
-}*/
 
 function signIn() {
     function newLoginHappened(user) {
@@ -60,10 +38,48 @@ function signIn() {
   }
   function app(user) {
     document.getElementById('clientName').innerHTML = user.displayName;
+    $('#user').append('<h3>Hello' + user.displayName + '</h3>');
   }
 
+  firebase.auth().signOut().then(function() {
  
+  }).catch(function(error) {
+  
+  });*/
 
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDhWCc6S10Usx70Q8NhSZnlGjjO66IYZ80",
+    authDomain: "login-prueba-f9344.firebaseapp.com",
+    databaseURL: "https://login-prueba-f9344.firebaseio.com",
+    projectId: "login-prueba-f9344",
+    storageBucket: "login-prueba-f9344.appspot.com",
+    messagingSenderId: "130120816145"
+  };
+
+firebase.initializeApp(config);
+  window.onload = inicializar;
+  var formConvalidaciones
+  var refConvalidaciones
+
+  function inicializar(){
+    formConvalidaciones = document.getElementById('form-convalidaciones');
+    formConvalidaciones.addEventListener('click', enviarConvalidacionAFirebase, false);
+    //ref nodo raiz
+    refConvalidaciones = firebase.database().ref().child('app');
+
+  }
+
+  function enviarConvalidacionAFirebase(event){
+    event.preventDefault();
+    refConvalidaciones.push({
+      modulo1: event.target.modulo1.value ,
+      modulo2: event.target.modulo2.value ,
+      modulo3: event.target.modulo3.value
+    });
+  };
+ 
 
 
 
