@@ -17,7 +17,7 @@
     authDomain: "login-prueba-f9344.firebaseapp.com",
     databaseURL: "https://login-prueba-f9344.firebaseio.com",
     projectId: "login-prueba-f9344",
-    storageBucket: "login-prueba-f9344.appspot.com",
+    storageBucket: "",
     messagingSenderId: "130120816145"
   };
 
