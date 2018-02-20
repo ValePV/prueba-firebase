@@ -45,7 +45,7 @@ function signIn() {
  
   }).catch(function(error) {
   
-  });*/
+  });
 
 
 // Initialize Firebase
@@ -59,6 +59,9 @@ function signIn() {
   };
 
 firebase.initializeApp(config);
+  */
+
+  /*
   window.onload = inicializar;
   var formConvalidaciones
   var refConvalidaciones
@@ -69,17 +72,48 @@ firebase.initializeApp(config);
     //ref nodo raiz
     refConvalidaciones = firebase.database().ref().child('app');
 
+    mostrarConvalidacionesDelFirebase();
+  }
+
+  function mostrarConvalidacionesDeFirebase(){
+    refConvalidaciones.on('value', function(snap){
+      var datos = snap.val();
+      var filasAMostrar = '';
+      for(var key in datos){
+        filasAMostrar += '<tr>' + 
+                            '<td>' + datos[key].moduloA + '</td>' + 
+                            '<td>' + datos[key].moduloB + '</td>' +
+                            '<td>' + datos[key].moduloC + '</td>' +
+                            '<td></td>' +
+                            '<td></td>' +
+                          '</tr>';
+      }
+    });
   }
 
   function enviarConvalidacionAFirebase(event){
     event.preventDefault();
     refConvalidaciones.push({
-      modulo1: event.target.modulo1.value ,
-      modulo2: event.target.modulo2.value ,
-      modulo3: event.target.modulo3.value
+      moduloA: event.target.moduloA.value,
+      moduloB: event.target.moduloB.value,
+      moduloC: event.target.moduloC.value
     });
+    formConvalidaciones.reset();
   }
- 
+ */
+
+var mainText = document.getElementById('mainText');
+var submitBtn = document.getElementById('submitBtn');
+
+function submitClick() {
+  var firebaseRef = firebase.database().ref();
+  var messageText = mainText.value;
+
+  firebaseRef.push().set(messageText);
+
+
+}
+
 
 
 
