@@ -102,6 +102,7 @@ firebase.initializeApp(config);
   }
  */
 
+/*
 var mainText = document.getElementById('mainText');
 var submitBtn = document.getElementById('submitBtn');
 
@@ -113,8 +114,35 @@ function submitClick() {
 
 
 }
+*/
 
+function IngresoGoogle() {
+  if(!firebase.auth().currentUser){
+    var provider = new firebase.auth.GoogleAuthProvider();
+    //indico a google que se van a autentificar
+    provider.addScope('https:wwww.googleapis.com/auth/plus.login');
 
+    firebase.auth()signInWithPopup(provider).then(function(result){
+      var token = result.credential.accesstoken;
+      var user= result.user;
+      console.log(user);
+    }).catch (function(error){
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      var erroremail = error.email;
+      var credential = error.credential;
+
+      if (errorCode==='auth/acconunt-exists-with-different-credential'){
+        alert ('Es el mismo usuario');
+      }
+    });
+
+  }else{
+    firebase.auth().signOut();
+  }
+}
+
+document.getElementById('btn-google').addEventListener('click', IngresoGoogle, false);
 
 
 
